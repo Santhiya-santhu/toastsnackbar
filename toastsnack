@@ -1,0 +1,36 @@
+//activity.java
+package com.example.toastsnackbar;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
+import com.google.android.material.snackbar.Snackbar;
+
+public class MainActivity extends AppCompatActivity {
+    private Button toast;
+    private Button snackbar;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        toast=(Button)findViewById(R.id.btn1);
+        snackbar=(Button)findViewById(R.id.btn2);
+        toast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "You clicked toast button", Toast.LENGTH_SHORT).show();
+            }
+        });
+        snackbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view,"You clicked snackbar button".toString(),Snackbar.LENGTH_LONG).show();
+            }
+        });
+    }
+}
